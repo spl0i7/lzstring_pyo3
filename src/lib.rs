@@ -26,7 +26,7 @@ fn decompressFromBase64(input: String) -> PyResult<String> {
 
 /// A Python module implemented in Rust.
 #[pymodule]
-fn string_sum(py: Python, m: &PyModule) -> PyResult<()> {
+fn lzma_pyo3(py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(compressToBase64, m)?)?;
     m.add_function(wrap_pyfunction!(decompressFromBase64, m)?)?;
     Ok(())
