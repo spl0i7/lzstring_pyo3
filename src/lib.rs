@@ -2,7 +2,6 @@ use pyo3::prelude::*;
 use pyo3::wrap_pyfunction;
 use pyo3::exceptions;
 
-/// Formats the sum of two numbers as string.
 #[pyfunction]
 fn compressToBase64(input: String) -> PyResult<String> {
     Ok(lz_str::compress_to_base64(input.as_str()))
