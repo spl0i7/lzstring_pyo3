@@ -13,3 +13,41 @@
 - Build with Maturin `maturin build`
 
 - Install build package with `pip3 install <path/to/whl>`
+
+## Benchmark
+
+```python
+
+import timeit
+import random
+import string
+
+import lzstring
+from lzma_pyo3 import compressToBase64, decompressFromBase64
+
+N=1000
+SEQ = ''.join(random.choices(string.ascii_uppercase + string.digits, k=N))
+
+X = lzstring.LZString()
+
+r1 = timeit.timeit("""
+from __main__ import SEQ, X
+a = X.compressToBase64(SEQ)
+b = X.decompressFromBase64(a)
+""", number=100)
+
+print("pure py: ", r1)
+
+r2 = timeit.timeit("""
+from __main__ import SEQ, compressToBase64, decompressFromBase64
+a = compressToBase64(SEQ)
+b = decompressFromBase64(a)
+""", number=100)
+
+print("rust-py: ", r2)
+
+```
+```
+pure py:  1.3936761820077663
+rust-py:  0.0515352350048488
+```
