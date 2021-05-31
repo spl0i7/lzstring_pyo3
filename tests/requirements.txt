@@ -1,0 +1,2 @@
+lzstring
+lzma_pyo3

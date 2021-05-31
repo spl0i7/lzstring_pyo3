@@ -51,3 +51,23 @@ print("rust-py: ", r2)
 pure py:  1.3936761820077663
 rust-py:  0.0515352350048488
 ```
+
+## Caveats
+
+`lzstring` and `lzma_pyo3` can produce different outputs when `compressToBase64` is called. This is because of different base64 padding. 
+
+```python
+import lzstring
+import lzma_pyo3
+
+X = lzstring.LZString()
+print(X.compressToBase64('hello'))
+print(lzma_pyo3.compressToBase64('hello'))
+
+```
+```
+BYUwNmD2Q===
+BYUwNmD2Q====
+```
+
+Since this is just related to base64 padding, it does not mean much. `decompressFromBase64` from both package can decompress either of the strings.  
