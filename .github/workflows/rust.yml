@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: macos-11
+    runs-on: ubuntu-18.04
 
     steps:
     - uses: actions/checkout@v2
