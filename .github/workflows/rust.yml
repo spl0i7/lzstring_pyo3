@@ -15,7 +15,7 @@ jobs:
     - name: Install dependencies
       run: |
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
-        python -m pip install --upgrade pip
+        sudo apt update && sudo apt install python3-pip -y
         pip install setuptools_rust
         python ./setup.py install --user
         python -m pip install -r tests/requirements.txt
