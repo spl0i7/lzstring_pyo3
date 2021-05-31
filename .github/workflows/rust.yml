@@ -14,7 +14,7 @@ jobs:
     - uses: actions/setup-python@v2
     - name: Install dependencies
       run: |
-        curl https://sh.rustup.rs -O setup.sh
+        curl -0 https://sh.rustup.rs -O setup.sh
         sudo bash setup.sh --default-toolchain none -y
         sudo pip3 install --upgrade pip
         sudo pip3 install setuptools_rust
