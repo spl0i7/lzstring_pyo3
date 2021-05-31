@@ -1,8 +1,9 @@
 name: Build Module
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - master 
 
 jobs:
   deploy:
