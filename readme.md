@@ -1,5 +1,7 @@
 # lzma_pyo3
 
+Python module based on the [LZ-String javascript]( http://pieroxy.net/blog/pages/lz-string/index.html), purpose here is to be faster than existing native python [implementation](https://pypi.org/project/lzstring/)
+
 ## Installation
 
 - Install Rust using [RustUp](https://rustup.rs/)
