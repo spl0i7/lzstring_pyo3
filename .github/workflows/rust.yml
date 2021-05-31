@@ -14,10 +14,12 @@ jobs:
     - uses: actions/setup-python@v2
     - name: Install dependencies
       run: |
-        curl https://sh.rustup.rs -o setup.sh
-        sudo bash setup.sh --default-toolchain none -y
-        sudo pip3 install --upgrade pip
-        sudo pip3 install setuptools_rust
-        sudo python3 ./setup.py install
-        python3 -m pip install -r tests/requirements.txt
-        python3 -m unittest  tests/compatibility.py
+        python3 -m venv env
+        sudo apt-get install python3-venv -y
+        source env/bin/activate
+        pip install --upgrade pip
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+        pip install setuptools_rust
+        python ./setup.py develop
+        python -m pip install -r tests/requirements.txt
+        python -m unittest  tests/compatibility.py
