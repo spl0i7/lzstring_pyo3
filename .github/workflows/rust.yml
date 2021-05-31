@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
@@ -17,6 +17,6 @@ jobs:
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
         pip3 install --upgrade pip
         pip3 install setuptools_rust
-        python3 ./setup.py install --user
+        sudo python3 ./setup.py install
         python3 -m pip install -r tests/requirements.txt
         python3 -m unittest  tests/compatibility.py
