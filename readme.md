@@ -1,3 +1,5 @@
+[![Build Module](https://github.com/spl0i7/lzstring_pyo3/actions/workflows/rust.yml/badge.svg)](https://github.com/spl0i7/lzstring_pyo3/actions/workflows/rust.yml)
+
 # lzma_pyo3
 
 Python module based on the [LZ-String javascript]( http://pieroxy.net/blog/pages/lz-string/index.html), purpose here is to be faster than existing native python [implementation](https://pypi.org/project/lzstring/)
